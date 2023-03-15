@@ -1,35 +1,21 @@
-import { useState } from "react";
-import { InputFormField } from "../components/InputFormField";
-import { RandomNameButton } from "../components/RandomNameButton";
-import { SubmitFormField } from "../components/SubmitFormField";
+import { useContext } from "react";
+import { SignInForm } from "../components/SignInForm";
+import { AppContext } from "../contexts/AppContext";
 
-export function SignInPage(props) {
-    const [formState, setFormState] =useState(''); 
-    
+export function SignInPage() {
+    const context = useContext(AppContext);
 
-    function handleSubmit(event){
-        event.preventDefault();
-        props.onSubmit(formState);
+
+    function handleSubmit(formData){
+        context.setUsername(formData.username);
+        context.setAvatarIndex(formData.avatarIndex);
     }
-
-    function handleUsernameChange(value){
-        setFormState(value);
-    }
-
-    console.log(formState);
-
+ 
         return (
         <div className="sign-in-page">
             <div className="card">
-                <form className="sign-in-form" onSubmit={handleSubmit}>
-                    <InputFormField label="Username" 
-                                    type="text"
-                                    onChange={handleUsernameChange}
-                                    value={formState}/>  
-                    <RandomNameButton onRandomName={handleUsernameChange}/>                
-                    <SubmitFormField label="Sign in" />                  
-                </form>          
+               <SignInForm onSubmit={handleSubmit}/>
             </div>
         </div>
     );
-};
+}

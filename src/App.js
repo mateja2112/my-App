@@ -1,18 +1,18 @@
-import { useReducer, useState } from "react";
+import { useContext} from "react";
 import { SignInPage } from "./pages/SignInPage";
-import {ChatPage} from "./pages/ChatPage";
+import { ChatPage} from "./pages/ChatPage";
+import { AppContext } from "./contexts/AppContext";
+
 
 function App() {
-  const [username, setUsername] = useState('');
+  const context =useContext(AppContext);
+  
 
-function handleSubmit(username){
-  setUsername(username)
-  }
 
   return (
     <div>
-      {username===''&&<SignInPage onSubmit={handleSubmit}/>}
-      {username !==''&&<ChatPage/>}
+      {!context.isSignedIn &&<SignInPage/>}
+      {context.isSignedIn &&<ChatPage/>}
     </div>
   );
 }
