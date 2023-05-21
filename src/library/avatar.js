@@ -1,6 +1,7 @@
 export const avatarImages =[
-    '/images1.jfif',
-    '/images2.png',
-    '/images3.webp',
+    '/bear.png',
+    '/cat.png',
+    '/chicken.png',
+    '/dog.png',
 
 ];

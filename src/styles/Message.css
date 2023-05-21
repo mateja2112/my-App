@@ -1,0 +1,9 @@
+message {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #484646;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+}

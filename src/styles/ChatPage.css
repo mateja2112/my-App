@@ -1,0 +1,92 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.main-box{
+    background-color: rgb(236, 233, 233);
+    margin: auto;
+    margin-top: 40px;
+    max-width: 600px;
+    height: 700px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+}
+
+.message {
+    padding:20px;
+    margin-top:20px;
+    width: 75%;
+    font-size: 10px;
+}
+
+.message-left{
+    margin-right: auto;
+    margin-top:70px;
+    font-family: "Lato", sans-serif;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background:linear-gradient(to right,rgb(240, 237, 237), 20%, rgb(219, 217, 217));
+    margin-left: 10px;
+}
+
+.message-right{
+    margin-left: auto;
+    background-color: #7e7ed5;
+    color:white;
+    font-family: "Lato", sans-serif;
+    margin-right: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.message-content{
+    padding: 15px;
+    display:flex;
+    position: fixed;
+    bottom: 0;
+}
+
+.message-avatar{
+    padding: 10px;
+    box-shadow:-3px -3px 3px rgb(241, 240, 240) ,3px 3px 3px rgb(207, 204, 204);
+    border-radius: 50%;
+}
+
+.type-box input{
+    height: 45px;
+    padding: 5px;
+    margin-left:5px;
+    width: 100px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-shadow:-3px -3px 3px rgb(241, 240, 240) ,3px 3px 3px rgb(207, 204, 204);
+    border-radius: 20px;
+}
+.chat-button {
+        position: relative;
+        left: 200px;
+        top: 20px;
+        color: grey;
+        border-color: grey;
+        width: 100px;
+        height: 40px;
+        border: 1px solid #242c37;
+        border-radius: 30px;
+        box-shadow: -5px 5px 10px rgba(rgb(70, 67, 67), 0.5);
+        opacity: 0.8; 
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        background-position: 1rem 50%;   
+        margin-bottom: 6rem;
+        font-size: 10px;
+        text-align: center;
+
+}

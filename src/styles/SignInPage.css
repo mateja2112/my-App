@@ -1,0 +1,23 @@
+.box {
+    background-color: rgb(236, 233, 233);
+    margin: auto;
+    margin-top: 40px;
+    width: 600px;
+    height: 700px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    padding: 5px;
+    text-align: center;
+    }
+
+.sign-in-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq {
+    font-style: italic;
+    padding-bottom: 25px;
+}

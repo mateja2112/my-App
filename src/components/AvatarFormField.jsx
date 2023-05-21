@@ -27,8 +27,6 @@ export function AvatarFormField (props) {
     }
 
     
-
-
     return (
         <FormField>
             <button type="button" onClick={handlePreviousClick}>Previous</button>

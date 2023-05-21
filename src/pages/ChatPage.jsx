@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useState } from "react";
 import { Message } from "../components/Message";
 import { MessageForm } from "../components/MessageForm";
 import { AppContext } from "../contexts/AppContext";
 import { Navigate } from "react-router-dom";
-import "../styles/Message.css";
+import "../styles/ChatPage.css";
 
 export function ChatPage(){
     
@@ -14,13 +14,16 @@ export function ChatPage(){
     const [ ready, setReady] = useState(false);
     const context = useContext(AppContext);
 
-    function handleSubmit(message) {
+    const handleSubmit = useCallback((message) => {
         client.publish({
             room: 'algebra',
-            message: message,
-            
+            message: {
+                ...message,
+                time: Date.now(),
+                authorId: context.id,
+            }
         });
-    }
+    }, [client, context])
 
     function handleSignOut() {
         context.setUsername('');
@@ -32,6 +35,8 @@ export function ChatPage(){
             avatarIndex={message.author.avatarIndex}
             author={message.author.username} 
             text={message.text}
+            time={message.time}
+            authorId={message.authorId}
         />;
     });
     useEffect (() => {
@@ -42,7 +47,6 @@ export function ChatPage(){
                  console.log(error);
             } else {
                 const room = drone.subscribe('algebra');
-
                 setClient(drone);
                 setChatRoom(room);
 
@@ -70,15 +74,16 @@ export function ChatPage(){
 
 
     return(
-        <div>
-            Chat page
-            <button type="button" onClick={handleSignOut}>Sign out</button>
+        <div className="main-box">
+            <button type="button" className="chat-button" onClick={handleSignOut}>Sign out</button>
             <div className="message-list">
                 {messageComponents}                         
             </div>
-            <MessageForm onSubmit={handleSubmit} 
+            {client === null && <div>Please wait...</div>}
+            {client !== null && <MessageForm onSubmit={handleSubmit} 
                     username={context.username} 
                     avatarIndex={context.avatarIndex} />
+            }
        </div>
     );
 };

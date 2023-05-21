@@ -1,15 +1,27 @@
 .button {
-    width: 100%;
-    background-color: black;
-    border-radius: none;
-    color: white;
+    position: relative;
+    left: 15px;
+    top: 100px;
+    color: grey;
+    border-color: grey;
+    width: 180px;
     height: 40px;
+    border: 1px solid #242c37;
+    border-radius: 30px;
+    box-shadow: -5px 5px 10px rgba(rgb(70, 67, 67), 0.5);
+    opacity: 0.8; 
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: 1rem 50%;   
+    margin-bottom: 6rem;
+    font-size: 20px;
+    text-align: center;
 }
 
 
 .random {
     width: 100%;
-    background-color: black;
+    background-color: gray;
     border-radius: none;
     color: white;
     height: 40px;
